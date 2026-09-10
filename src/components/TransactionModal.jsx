@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Modal from './Modal'
 import { CATEGORY_KEYS, CATEGORY_COLORS } from './CategoryIcon'
 import { useSettings } from '../context/SettingsContext'
+import { toKGS } from '../utils/money'
 
 export default function TransactionModal({ t, onClose, onSave }) {
   const { settings } = useSettings()
@@ -23,7 +24,7 @@ export default function TransactionModal({ t, onClose, onSave }) {
     if (!amount || amount <= 0) return setError(t.amount + ' ⚠')
     onSave({
       title: form.title.trim(),
-      amount: Math.round(amount),
+      amount: toKGS(amount, settings.currency), // храним всё в сомах
       type: form.type,
       category: form.category,
       date: form.date,
@@ -39,7 +40,7 @@ export default function TransactionModal({ t, onClose, onSave }) {
           <input value={form.title} onChange={set('title')} placeholder={t.titlePh} autoFocus />
         </label>
         <label>
-          <span>{t.amount}</span>
+          <span>{t.amount} ({settings.currency})</span>
           <input
             type="number"
             min="0"
@@ -72,7 +73,6 @@ export default function TransactionModal({ t, onClose, onSave }) {
                 onClick={() => setForm((f) => ({ ...f, category: c }))}
               >
                 <i style={{ background: CATEGORY_COLORS[c] }} />
-                {settings.lang === 'ru' ? '' : ''}
                 {t.cats[c]}
               </button>
             ))}

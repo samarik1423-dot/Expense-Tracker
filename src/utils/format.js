@@ -1,12 +1,14 @@
 import { CURRENCIES } from '../context/SettingsContext'
+import { fromKGS } from './money'
 
+// amount приходит в KGS, конвертируем в выбранную валюту
 export function formatMoney(amount, currency = 'KGS') {
   const c = CURRENCIES[currency] || CURRENCIES.KGS
   return new Intl.NumberFormat(c.locale, {
     style: 'currency',
     currency,
     maximumFractionDigits: 0,
-  }).format(amount)
+  }).format(fromKGS(amount, currency))
 }
 
 export function formatDate(dateStr, lang = 'ru') {

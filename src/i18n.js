@@ -1,7 +1,14 @@
 export const translations = {
   ru: {
     appName: 'Pulse',
-    nav: { dashboard: 'Обзор', transactions: 'Операции', analytics: 'Аналитика', settings: 'Настройки' },
+    nav: {
+      dashboard: 'Обзор',
+      income: 'Доходы',
+      expenses: 'Расходы',
+      transactions: 'Операции',
+      analytics: 'Аналитика',
+      settings: 'Настройки',
+    },
     dashboard: {
       greeting: 'Добро пожаловать',
       balance: 'Общий баланс',
@@ -16,6 +23,20 @@ export const translations = {
       vsLastMonth: 'к прошлому месяцу',
       up: 'выше',
       down: 'ниже',
+    },
+    incomePage: {
+      title: 'Доходы',
+      total: 'Чистые доходы',
+      count: 'операций',
+      byCategory: 'По категориям',
+      empty: 'Доходов пока нет',
+    },
+    expensePage: {
+      title: 'Расходы',
+      total: 'Чистые расходы',
+      count: 'операций',
+      byCategory: 'По категориям',
+      empty: 'Расходов пока нет',
     },
     transactions: {
       title: 'Операции',
@@ -83,7 +104,14 @@ export const translations = {
   },
   en: {
     appName: 'Pulse',
-    nav: { dashboard: 'Overview', transactions: 'Transactions', analytics: 'Analytics', settings: 'Settings' },
+    nav: {
+      dashboard: 'Overview',
+      income: 'Income',
+      expenses: 'Expenses',
+      transactions: 'Transactions',
+      analytics: 'Analytics',
+      settings: 'Settings',
+    },
     dashboard: {
       greeting: 'Welcome back',
       balance: 'Total balance',
@@ -98,6 +126,20 @@ export const translations = {
       vsLastMonth: 'vs last month',
       up: 'higher',
       down: 'lower',
+    },
+    incomePage: {
+      title: 'Income',
+      total: 'Net income',
+      count: 'transactions',
+      byCategory: 'By category',
+      empty: 'No income yet',
+    },
+    expensePage: {
+      title: 'Expenses',
+      total: 'Net expenses',
+      count: 'transactions',
+      byCategory: 'By category',
+      empty: 'No expenses yet',
     },
     transactions: {
       title: 'Transactions',

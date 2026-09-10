@@ -22,7 +22,6 @@ export default function Dashboard() {
   const expense = sumByType(transactions, 'expense', (t2) => isSameMonth(t2.date, now))
   const balance = sumByType(transactions, 'income') - sumByType(transactions, 'expense')
 
-  // previous month delta
   const prev = new Date(now.getFullYear(), now.getMonth() - 1, 1)
   const prevExpense = sumByType(transactions, 'expense', (t2) => isSameMonth(t2.date, prev))
   const delta = prevExpense ? Math.round(((expense - prevExpense) / prevExpense) * 100) : 0
@@ -66,20 +65,22 @@ export default function Dashboard() {
             <AnimatedNumber value={balance} format={(v) => formatMoney(v, settings.currency)} />
           </h2>
         </div>
-        <div className="card">
+        <Link to="/income" className="card link-card">
           <span className="card-label">
             <i className="dot" style={{ background: '#4fc98f' }} />
             {t.dashboard.incomeMonth}
+            <ArrowUpRight size={15} className="card-arrow" />
           </span>
           <h3 className="income">
             <ArrowUpRight size={16} />{' '}
             <AnimatedNumber value={income} format={(v) => formatMoney(v, settings.currency)} />
           </h3>
-        </div>
-        <div className="card">
+        </Link>
+        <Link to="/expenses" className="card link-card">
           <span className="card-label">
             <i className="dot" style={{ background: '#e86a6a' }} />
             {t.dashboard.expenseMonth}
+            <ArrowUpRight size={15} className="card-arrow" />
           </span>
           <h3 className="expense">
             <ArrowDownRight size={16} />{' '}
@@ -88,7 +89,7 @@ export default function Dashboard() {
           <span className="muted small">
             {Math.abs(delta)}% {delta >= 0 ? t.dashboard.up : t.dashboard.down} · {t.dashboard.vsLastMonth}
           </span>
-        </div>
+        </Link>
       </section>
 
       <section className="grid-2">

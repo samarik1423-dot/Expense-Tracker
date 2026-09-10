@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { LayoutDashboard, ArrowLeftRight, PieChart, Settings as SettingsIcon, Plus } from 'lucide-react'
+import {
+  LayoutDashboard, TrendingUp, TrendingDown, ArrowLeftRight,
+  PieChart, Settings as SettingsIcon, Plus,
+} from 'lucide-react'
 import { useSettings } from '../context/SettingsContext'
 import { useExpenses } from '../context/ExpensesContext'
 import { translations } from '../i18n'
@@ -8,6 +11,8 @@ import TransactionModal from './TransactionModal'
 
 const NAV = [
   { to: '/', icon: LayoutDashboard, key: 'dashboard' },
+  { to: '/income', icon: TrendingUp, key: 'income' },
+  { to: '/expenses', icon: TrendingDown, key: 'expenses' },
   { to: '/transactions', icon: ArrowLeftRight, key: 'transactions' },
   { to: '/analytics', icon: PieChart, key: 'analytics' },
   { to: '/settings', icon: SettingsIcon, key: 'settings' },

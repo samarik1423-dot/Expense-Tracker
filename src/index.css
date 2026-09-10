@@ -435,3 +435,37 @@ body {
   .cards-row, .cards-row.four, .grid-2 { grid-template-columns: 1fr; }
   .content { padding: 22px 16px; }
 }
+
+/* ---------- Link cards (dashboard income/expense) ---------- */
+.card.link-card {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+.card.link-card:hover .card-arrow { transform: translate(2px, -2px); opacity: 1; }
+.card-arrow {
+  margin-left: auto;
+  opacity: 0;
+  transition: all .22s ease;
+}
+.card.link-card h3 { display: flex; align-items: center; gap: 4px; }
+
+/* ---------- Income / Expenses pages ---------- */
+.stat-card h3.plain-list { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.cat-inline { display: inline-flex; align-items: center; gap: 7px; }
+.cat-inline i { width: 8px; height: 8px; border-radius: 50%; }
+.arrow { font-weight: 800; }
+
+.legend.wide li { display: flex; align-items: center; gap: 12px; padding: 7px 0; }
+.legend.wide .cat-icon { width: 30px; height: 30px; border-radius: 9px; }
+.pct-bar {
+  flex: 1;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.pct-bar div { height: 100%; border-radius: 99px; transition: width .8s cubic-bezier(.22,1,.36,1); }
+.legend.wide b { min-width: 90px; text-align: right; }
+.legend.wide em { font-style: normal; color: var(--text-2); font-size: 12px; width: 38px; }
